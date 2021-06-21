@@ -1,0 +1,22 @@
+{
+  "name": "steam-afk-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1Life1Chance/Steam-AFK-Bot.git"
+  },
+  "author": "mf*",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1Life1Chance/Steam-AFK-Bot/issues"
+  },
+  "homepage": "https://github.com/1Life1Chance/Steam-AFK-Bot#readme",
+  "dependencies": {
+    "steam-user": "^4.19.10"
+  }
+}

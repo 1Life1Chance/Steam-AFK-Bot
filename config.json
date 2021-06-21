@@ -1,7 +1,8 @@
 {
     "username": "",
     "password": "",
-    "idlegameid": ["Specific Game", 730], 
+    "idlegameid": ["Specific Game", 730],
+    "admins": [""],
     "afkmessage": "",
     "enableCommand": "",
     "disabledCommand": ""
