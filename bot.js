@@ -11,7 +11,28 @@ const repliededUsers = [];
 client.logOn(logOnOptions);
 client.on('loggedOn', () => {
     console.log('Succesfully logged on.');
+    client.setPersona(SteamUser.EPersonaState.Online);
     client.gamesPlayed(config.idlegameid);
+});
+
+client.on('error', e => {
+    switch (e.eresult) {
+        case SteamUser.EResult.AccountDisabled:
+            console.log(`This account is disabled!`);
+            break;
+        case SteamUser.EResult.InvalidPassword:
+            console.log(`Invalid Password detected!`);
+            break;
+        case SteamUser.EResult.RateLimitExceeded:
+            console.log(`Rate Limit Exceeded.`);
+            break;
+        case SteamUser.EResult.LogonSessionReplaced:
+            console.log(`Unexpected Disconnection!, you have LoggedIn with this same account in another place..`);
+            break;
+        default:
+            console.log("Unexpected Disconnection!");
+            break;
+    }
 });
 
 client.on("friendMessage", function (steamID, message) {
