@@ -36,13 +36,11 @@ client.on('error', e => {
 });
 
 client.on("friendMessage", function (steamID, message) {
-    if(message == config.enableCommand && config.admins.indexOf(steamID) > -1){
-        console.log('Reply enabled');
-        replyEnabled = true;
-    } else if(message == config.disabledCommand && config.admins.indexOf(steamID) > -1) {
-        console.log('Reply disabled');
-        replyEnabled = false;
-    } else if(replyEnabled && !repliededUsers.includes(steamID)){
+    if(message == '!yourcommamd'){
+        client.chatMessage(steamID, 'your reply');
+    } else if(message == '!yourcommamd2'){
+        client.chatMessage(steamID, 'your reply2');
+    } else {
         client.chatMessage(steamID, config.afkmessage);
         repliededUsers.push(steamID);
         setTimeout(() => {
