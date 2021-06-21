@@ -40,7 +40,7 @@ client.on("friendMessage", function (steamID, message) {
     } else if(message == '!yourcommamd2'){
         client.chatMessage(steamID, 'your reply2');
     } else {
-        if(!repliededUsers.includes(steamID)){
+        if(repliededUsers.indexOf(steamID) == -1){
             client.chatMessage(steamID, config.afkmessage);
             repliededUsers.push(steamID);
             setTimeout(() => {
