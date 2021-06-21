@@ -11,15 +11,14 @@ const repliededUsers = [];
 client.logOn(logOnOptions);
 client.on('loggedOn', () => {
     console.log('Succesfully logged on.');
-    client.setPersona(SteamUser.Steam.EPersonaState.Online);
     client.gamesPlayed(config.idlegameid);
 });
 
 client.on("friendMessage", function (steamID, message) {
-    if(message == config.enableCommand){
+    if(message == config.enableCommand && config.admins.indexOf(steamID) > -1){
         console.log('Reply enabled');
         replyEnabled = true;
-    } else if(message == config.disabledCommand) {
+    } else if(message == config.disabledCommand && config.admins.indexOf(steamID) > -1) {
         console.log('Reply disabled');
         replyEnabled = false;
     } else if(replyEnabled && !repliededUsers.includes(steamID)){
