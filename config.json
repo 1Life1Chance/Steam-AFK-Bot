@@ -2,5 +2,7 @@
     "username": "",
     "password": "",
     "idlegameid": ["Specific Game", 730], 
-    "afkmessage": "" 
+    "afkmessage": "",
+    "enableCommand": "",
+    "disabledCommand": ""
 }
