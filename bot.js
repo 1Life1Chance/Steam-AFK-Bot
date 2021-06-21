@@ -41,8 +41,8 @@ client.on("friendMessage", function (steamID, message) {
         client.chatMessage(steamID, 'your reply2');
     } else {
         if(repliededUsers.indexOf(steamID) == -1){
-            client.chatMessage(steamID, config.afkmessage);
             repliededUsers.push(steamID);
+            client.chatMessage(steamID, config.afkmessage);
             setTimeout(() => {
                 repliededUsers = repliededUsers.filter(function(steamIDs) { return steamIDs !== steamID })
             }, 10 * 60000); //10 min
