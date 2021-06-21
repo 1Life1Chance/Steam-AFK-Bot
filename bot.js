@@ -12,7 +12,6 @@ client.logOn(logOnOptions);
 client.on('loggedOn', () => {
     console.log('Succesfully logged on.');
     client.setPersona(SteamUser.EPersonaState.Online);
-    client.gamesPlayed(config.idlegameid);
 });
 
 client.on('error', e => {
