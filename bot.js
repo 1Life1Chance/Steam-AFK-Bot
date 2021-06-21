@@ -34,15 +34,16 @@ client.on('error', e => {
     }
 });
 
-client.on("friendMessage", function (steamID, message) {
+client.on("friendMessage", function (user, message) {
+    let steamID = user.getSteamID64();
     if(message == '!yourcommamd'){
-        client.chatMessage(steamID, 'your reply');
+        client.chatMessage(user, 'your reply');
     } else if(message == '!yourcommamd2'){
-        client.chatMessage(steamID, 'your reply2');
+        client.chatMessage(user, 'your reply2');
     } else {
         if(repliededUsers.indexOf(steamID) == -1){
             repliededUsers.push(steamID);
-            client.chatMessage(steamID, config.afkmessage);
+            client.chatMessage(user, config.afkmessage);
             setTimeout(() => {
                 repliededUsers = repliededUsers.filter(function(steamIDs) { return steamIDs !== steamID })
             }, 10 * 60000); //10 min
