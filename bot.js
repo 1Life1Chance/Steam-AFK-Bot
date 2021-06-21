@@ -40,10 +40,12 @@ client.on("friendMessage", function (steamID, message) {
     } else if(message == '!yourcommamd2'){
         client.chatMessage(steamID, 'your reply2');
     } else {
-        client.chatMessage(steamID, config.afkmessage);
-        repliededUsers.push(steamID);
-        setTimeout(() => {
-            repliededUsers = repliededUsers.filter(function(steamIDs) { return steamIDs !== steamID })
-        }, 10 * 60000); //10 min
+        if(!repliededUsers.includes(steamID)){
+            client.chatMessage(steamID, config.afkmessage);
+            repliededUsers.push(steamID);
+            setTimeout(() => {
+                repliededUsers = repliededUsers.filter(function(steamIDs) { return steamIDs !== steamID })
+            }, 10 * 60000); //10 min
+        }
     }
 });
