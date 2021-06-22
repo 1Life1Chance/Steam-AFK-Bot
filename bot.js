@@ -6,7 +6,7 @@ const logOnOptions = {
     password: config.password,
 };
 const replyEnabled = false;
-const repliededUsers = [];
+var repliededUsers = [];
 
 client.logOn(logOnOptions);
 client.on('loggedOn', () => {
@@ -45,8 +45,7 @@ client.on("friendMessage", function (user, message) {
             repliededUsers.push(steamID);
             client.chatMessage(user, config.afkmessage);
             setTimeout(() => {
-                let repliededUsersV2 = repliededUsers.filter(function(steamIDs) { return steamIDs !== steamID });
-                repliededUsers = repliededUsersV2;
+                repliededUsers = repliededUsers.filter(function(steamIDs) { return steamIDs !== steamID });
             }, 10 * 60000); //10 min
         }
     }
